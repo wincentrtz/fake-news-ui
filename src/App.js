@@ -2,11 +2,9 @@ import React from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Switch, Route } from 'react-router-dom';
 
-import Layout from './pages/layouts';
+import Layout from './pages/templates/layout';
 import routes from './routes'
 import configs from './configs'
-
-console.log(configs.colors)
 
 const theme = createMuiTheme({
   palette: configs.colors,

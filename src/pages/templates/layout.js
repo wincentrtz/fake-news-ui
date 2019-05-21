@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import Navbar from './navbar';
-import Sidebar from './sidebar';
+import Navbar from '../../components/common/navbar';
+import Sidebar from '../../components/common/sidebar';
 
 class Layout extends Component {
   state = {
