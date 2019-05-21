@@ -1,16 +1,15 @@
 import React from 'react';
-import './App.css';
-import Layout from './pages/layouts';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import blue from '@material-ui/core/colors/blue';
 import { Switch, Route } from 'react-router-dom';
+
+import Layout from './pages/layouts';
 import routes from './routes'
+import configs from './configs'
+
+console.log(configs.colors)
 
 const theme = createMuiTheme({
-  palette: {
-    primary: { main: blue[500] },
-    secondary: { main: '#f50057' }
-  },
+  palette: configs.colors,
   typography: { useNextVariants: true },
 });
 
