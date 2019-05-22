@@ -1,32 +1,40 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
 
-import Navbar from 'components/common/navbar';
-import Sidebar from 'components/common/sidebar';
+import Navbar from "components/common/navbar";
+import Sidebar from "components/common/sidebar";
 
+import routes from "routes";
 class Layout extends Component {
   state = {
     isOpen: false
   };
 
-  toggleDrawer = (isOpen) => {
+  toggleDrawer = isOpen => {
     this.setState({
-      isOpen,
+      isOpen
     });
   };
 
   render() {
+    const { toggleDrawer } = this;
     const { isOpen } = this.state;
-    const { children } = this.props;
     return (
       <div>
-        <Navbar handleDrawer={this.toggleDrawer} />
-        <Sidebar isOpen={isOpen} handleDrawer={this.toggleDrawer} />
-        {children}
+        <Navbar handleDrawer={toggleDrawer} />
+        <Sidebar isOpen={isOpen} handleDrawer={toggleDrawer} />
+        <Switch>
+          {routes.map(route => (
+            <Route
+              key={route.url}
+              path={route.url}
+              component={route.component}
+            />
+          ))}
+        </Switch>
       </div>
     );
   }
 }
-
-
 
 export default Layout;

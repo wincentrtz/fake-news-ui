@@ -1,28 +1,23 @@
-import React from 'react';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { Switch, Route } from 'react-router-dom';
+import React from "react";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { Route } from "react-router-dom";
 
-import Layout from './pages/templates/layout';
-import routes from './routes'
-import configs from './configs'
+import Layout from "./pages/templates/layout";
+import Login from "./pages/login";
+import configs from "./configs";
 
 const theme = createMuiTheme({
   palette: configs.colors,
-  typography: { useNextVariants: true },
+  typography: { useNextVariants: true }
 });
 
-function App() {
+const App = () => {
   return (
     <MuiThemeProvider theme={theme}>
-      <Layout>
-        <Switch>
-          {routes.map(route => (
-            <Route key={route.url} path={route.url} render={route.component} />
-          ))}
-        </Switch>
-      </Layout>
+      <Route path="/login" component={Login} />
+      <Route path="/admin" component={Layout} />
     </MuiThemeProvider>
   );
-}
+};
 
 export default App;
