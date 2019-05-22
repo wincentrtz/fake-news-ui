@@ -6,9 +6,11 @@ import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import AccountCircle from "@material-ui/icons/AccountCircle";
+import Lock from "@material-ui/icons/Lock";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 const styles = theme => ({
   root: {
@@ -29,6 +31,10 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
     padding: "10px 20px"
+  },
+  forget: {
+    textDecoration: "none",
+    color: "#2196f3"
   }
 });
 
@@ -53,7 +59,14 @@ class Form extends Component {
           justify="center"
           alignItems="center"
         >
-          <Grid item xs="5" direction="column" className={classes.box}>
+          <Grid
+            container
+            item
+            xs={10}
+            md={5}
+            direction="column"
+            className={classes.box}
+          >
             <h1>Login</h1>
             <TextField
               id="outlined-bare"
@@ -72,14 +85,14 @@ class Form extends Component {
             <TextField
               id="outlined-bare"
               className={classes.textField}
-              placeholder="Username"
+              placeholder="Password"
               margin="normal"
               variant="outlined"
               type={this.state.showPassword ? "text" : "password"}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <AccountCircle />
+                    <Lock />
                   </InputAdornment>
                 ),
                 endAdornment: (
@@ -102,7 +115,9 @@ class Form extends Component {
               >
                 Login
               </Button>
-              <h4>Reset Password ?</h4>
+              <Link className={classes.forget} to="/login">
+                <h4>Forget Password ?</h4>
+              </Link>
             </Grid>
           </Grid>
         </Grid>
