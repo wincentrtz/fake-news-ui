@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 
-import Form from "components/pages/login/form";
+import LoginForm from "components/pages/login/loginForm";
 
 const styles = theme => ({
   root: {
@@ -13,13 +13,17 @@ const styles = theme => ({
   }
 });
 
+const submit = values => {
+  console.log(values);
+};
+
 function Login(props) {
   const { classes } = props;
 
   return (
     <div>
       <Paper className={classes.root} elevation={0} square={true}>
-        <Form />
+        <LoginForm onSubmit={submit} />
       </Paper>
     </div>
   );
@@ -29,4 +33,4 @@ Login.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Form);
+export default withStyles(styles)(Login);
