@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Navbar from "components/common/navbar";
-import Sidebar from "components/common/sidebar";
+import Navbar from "components/common/Navbar";
+import Sidebar from "components/common/Sidebar";
 
 import routes from "routes";
 class Layout extends Component {

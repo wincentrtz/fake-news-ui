@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 
-import LoginForm from "components/pages/login/loginForm";
+import LoginForm from "components/pages/login/LoginForm";
 
 const styles = theme => ({
   root: {

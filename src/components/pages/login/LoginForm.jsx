@@ -6,8 +6,8 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { Form, Field, reduxForm } from "redux-form";
 
-import PasswordTextField from "./passwordTextField";
-import UsernameTextField from "./usernameTextField";
+import PasswordTextField from "./PasswordTextField";
+import UsernameTextField from "./UsernameTextField";
 
 const styles = theme => ({
   root: {
