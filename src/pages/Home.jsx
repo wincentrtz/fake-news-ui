@@ -23,7 +23,7 @@ class Home extends Component {
         id: "basic-bar"
       },
       xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+        categories: []
       }
     },
     series: [
@@ -36,6 +36,20 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.fetchPostSummary();
+  }
+
+  static getDerivedStateFromProps({ charts }, { options, series }) {
+    if (charts.xAxis != options.xaxis.categories) {
+      const newOptions = { ...options };
+      const newSeries = [...series];
+      newOptions.xaxis.categories = charts.xAxis;
+      newSeries[0].data = charts.yAxis;
+      return {
+        options: newOptions,
+        series: newSeries
+      };
+    }
+    return null;
   }
 
   render() {
