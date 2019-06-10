@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 
 import { fetchPostSummary } from "store/actions/dashboard-actions";
 import PostChart from "../components/pages/home/PostChart";
+import PostQueueList from "../components/pages/home/PostQueueList";
 
 const styles = () => ({
   root: {
@@ -65,12 +66,25 @@ class Home extends Component {
         direction="row"
         justify="center"
       >
-        <PostChart
-          options={options}
-          series={series}
-          date={{ startDate: undefined, endDate: undefined }}
-          onSubmit={this.submit}
-        />
+        <Grid container item xs={10} direction="row" justify="center">
+          <PostChart
+            options={options}
+            series={series}
+            date={{ startDate: undefined, endDate: undefined }}
+            onSubmit={this.submit}
+          />
+        </Grid>
+        <Grid container item xs={5} direction="row">
+          <PostQueueList />
+        </Grid>
+        <Grid container item xs={5} direction="row">
+          <PostChart
+            options={options}
+            series={series}
+            date={{ startDate: undefined, endDate: undefined }}
+            onSubmit={this.submit}
+          />
+        </Grid>
       </Grid>
     );
   }
