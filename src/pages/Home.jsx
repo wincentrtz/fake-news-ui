@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import { fetchPostSummary } from "store/actions/dashboard-actions";
 import PostChart from "../components/pages/home/PostChart";
 import PostQueueList from "../components/pages/home/PostQueueList";
+import PostResultList from "../components/pages/home/PostResultList";
 
 const styles = () => ({
   root: {
@@ -78,12 +79,7 @@ class Home extends Component {
           <PostQueueList />
         </Grid>
         <Grid container item xs={5} direction="row">
-          <PostChart
-            options={options}
-            series={series}
-            date={{ startDate: undefined, endDate: undefined }}
-            onSubmit={this.submit}
-          />
+          <PostResultList />
         </Grid>
       </Grid>
     );

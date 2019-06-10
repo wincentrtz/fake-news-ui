@@ -5,6 +5,9 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Divider from "@material-ui/core/Divider";
+import Avatar from "@material-ui/core/Avatar";
+import Chip from "@material-ui/core/Chip";
+import DoneIcon from "@material-ui/icons/Done";
 
 const styles = theme => ({
   list: {
@@ -15,27 +18,31 @@ const styles = theme => ({
   }
 });
 
-const PostQueueList = ({ classes }) => {
+const PostResultList = ({ classes }) => {
   return (
     <div className={classes.list}>
-      <h2>Queue Posts</h2>
+      <h2>Latest Classification</h2>
       <List component="nav">
         <Divider />
         <ListItem button>
           <ListItemText primary="Lorem Ipsum Title" />
-          <LinearProgress
-            className={classes.progress}
-            variant="determinate"
-            value={50}
+          <Chip
+            label="Hoax"
+            clickable
+            className={classes.chip}
+            color="secondary"
+            deleteIcon={<DoneIcon />}
           />
         </ListItem>
         <Divider />
         <ListItem button>
           <ListItemText primary="Lorem Ipsum Title" />
-          <LinearProgress
-            className={classes.progress}
-            variant="determinate"
-            value={0}
+          <Chip
+            label="Not Hoax"
+            clickable
+            className={classes.chip}
+            color="primary"
+            deleteIcon={<DoneIcon />}
           />
         </ListItem>
         <Divider />
@@ -44,4 +51,4 @@ const PostQueueList = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(PostQueueList);
+export default withStyles(styles)(PostResultList);
