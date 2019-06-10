@@ -1,6 +1,7 @@
 import {
   FETCH_POST_SUMMARY,
-  FETCH_QUEUE_POSTS
+  FETCH_QUEUE_POSTS,
+  FETCH_RESULT_POSTS
 } from "../constants/dashboard-constants";
 
 const dashboardState = {
@@ -8,7 +9,8 @@ const dashboardState = {
     xAxis: [],
     yAxis: []
   },
-  queuePosts: []
+  queuePosts: [],
+  resultPosts: []
 };
 
 const dashboardReducers = (state = dashboardState, action) => {
@@ -22,6 +24,11 @@ const dashboardReducers = (state = dashboardState, action) => {
       return {
         ...state,
         queuePosts: action.payload
+      };
+    case FETCH_RESULT_POSTS:
+      return {
+        ...state,
+        resultPosts: action.payload
       };
     default:
       return state;

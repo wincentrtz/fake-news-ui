@@ -1,6 +1,7 @@
 import {
   FETCH_POST_SUMMARY,
-  FETCH_QUEUE_POSTS
+  FETCH_QUEUE_POSTS,
+  FETCH_RESULT_POSTS
 } from "../constants/dashboard-constants";
 
 export const fetchPostSummary = options => dispatch => {
@@ -30,10 +31,54 @@ export const fetchQueuePosts = options => dispatch => {
       id: 3,
       title: "Lorem Ipsum Title",
       progress: 0
+    },
+    {
+      id: 4,
+      title: "Lorem Ipsum Title",
+      progress: 0
+    },
+    {
+      id: 5,
+      title: "Lorem Ipsum Title",
+      progress: 0
     }
   ];
   dispatch({
     type: FETCH_QUEUE_POSTS,
+    payload: response
+  });
+};
+
+export const fetchResultPosts = options => dispatch => {
+  const response = [
+    {
+      id: 1,
+      title: "Lorem Ipsum Title",
+      hoax: false
+    },
+    {
+      id: 2,
+      title: "Lorem Ipsum Title",
+      hoax: false
+    },
+    {
+      id: 3,
+      title: "Lorem Ipsum Title",
+      hoax: true
+    },
+    {
+      id: 4,
+      title: "Lorem Ipsum Title",
+      hoax: true
+    },
+    {
+      id: 5,
+      title: "Lorem Ipsum Title",
+      hoax: false
+    }
+  ];
+  dispatch({
+    type: FETCH_RESULT_POSTS,
     payload: response
   });
 };
