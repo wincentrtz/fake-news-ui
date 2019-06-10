@@ -75,10 +75,11 @@ class Home extends Component {
             onSubmit={this.submit}
           />
         </Grid>
-        <Grid container item xs={5} direction="row">
+        <Grid container item xs={10} md={4} direction="row">
           <PostQueueList />
         </Grid>
-        <Grid container item xs={5} direction="row">
+        <Grid container item xs={10} md={1} direction="row" />
+        <Grid container item xs={10} md={4} direction="row">
           <PostResultList />
         </Grid>
       </Grid>
