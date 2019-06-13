@@ -4,6 +4,8 @@ import {
   FETCH_RESULT_POSTS
 } from "../constants/dashboard-constants";
 
+import api from "services/modules/dashboard";
+
 export const fetchPostSummary = options => dispatch => {
   const response = {
     xAxis: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
@@ -15,37 +17,11 @@ export const fetchPostSummary = options => dispatch => {
   });
 };
 
-export const fetchQueuePosts = options => dispatch => {
-  const response = [
-    {
-      id: 1,
-      title: "Lorem Ipsum Title",
-      progress: 50
-    },
-    {
-      id: 2,
-      title: "Lorem Ipsum Title",
-      progress: 0
-    },
-    {
-      id: 3,
-      title: "Lorem Ipsum Title",
-      progress: 0
-    },
-    {
-      id: 4,
-      title: "Lorem Ipsum Title",
-      progress: 0
-    },
-    {
-      id: 5,
-      title: "Lorem Ipsum Title",
-      progress: 0
-    }
-  ];
+export const fetchQueuePosts = options => async dispatch => {
+  const { data } = await api.getQueuingPosts();
   dispatch({
     type: FETCH_QUEUE_POSTS,
-    payload: response
+    payload: data
   });
 };
 

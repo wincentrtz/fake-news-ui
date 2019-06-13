@@ -4,8 +4,8 @@ import { withStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import Divider from "@material-ui/core/Divider";
+import Chip from "@material-ui/core/Chip";
 
 import { fetchQueuePosts } from "store/actions/dashboard-actions";
 
@@ -19,6 +19,11 @@ const styles = theme => ({
 });
 
 class PostQueueList extends Component {
+  status = {
+    0: "Not Yet",
+    1: "In Progress"
+  };
+
   componentDidMount = () => {
     this.props.fetchQueuePosts();
   };
@@ -26,16 +31,17 @@ class PostQueueList extends Component {
     this.props.queuePosts.map(post => (
       <div key={post.id}>
         <ListItem button>
-          <ListItemText primary={post.title} />
-          <LinearProgress
-            className={classes.progress}
-            variant="buffer"
-            value={post.progress}
+          <ListItemText primary={post.post_title} />
+          <Chip
+            label={this.status[post.status]}
+            clickable
+            className={classes.chip}
           />
         </ListItem>
         <Divider />
       </div>
     ));
+
   render() {
     const { classes } = this.props;
 
