@@ -1,10 +1,10 @@
-import blue from '@material-ui/core/colors/blue';
+import blue from "@material-ui/core/colors/blue";
 
 export default {
-    primary: {
-        main: blue[500]
-    },
-    secondary: {
-        main: '#f50057'
-    }
-}
+  primary: {
+    main: blue[500]
+  },
+  secondary: {
+    main: "#f50057"
+  }
+};
