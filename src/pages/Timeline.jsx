@@ -19,11 +19,11 @@ const styles = theme => ({
 });
 
 class Timeline extends Component {
-  componentDidMount() {
-    const a = Axios.post("http://localhost:8080/postqueues", {
-      postId: 1
-    }).then(response => console.log(response));
-  }
+  // componentDidMount() {
+  //   const a = Axios.post("http://localhost:8080/postqueues", {
+  //     postId: 1
+  //   }).then(response => console.log(response));
+  // }
 
   render() {
     const { classes } = this.props;
